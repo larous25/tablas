@@ -1,0 +1,20 @@
+{
+  "name": "tablas cliente",
+  "version": "0.0.0",
+  "authors": [
+    "brian bustos <larous25@hotmail.es>"
+  ],
+  "main": "index.ejs",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.3"
+  }
+}

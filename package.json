@@ -1,0 +1,21 @@
+{
+  "name": "tablas",
+  "version": "1.0.0",
+  "description": "prueba mysql",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "author": "brian bustos <larous25@hotmail.es>",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.3.3",
+    "express": "^4.13.1",
+    "mysql": "^2.8.0"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "mocha": "^2.2.5",
+    "supertest": "^1.0.1"
+  }
+}
