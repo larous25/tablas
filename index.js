@@ -15,6 +15,7 @@ var connection = mysql.createConnection({
 	user     : 'root',
 	password : '',
 	multipleStatements: true
+	// ,debug:true
 });
 
 
@@ -28,7 +29,6 @@ connection.query('CREATE DATABASE IF NOT EXISTS test01 DEFAULT CHARACTER SET UTF
 	if (err) throw err;
 
 	console.log('create database');
-	connection.end();
 });
 
 connection.changeUser({database:'test01'}, function(err){
@@ -43,6 +43,7 @@ connection
 function(err, results){
 	if(err) throw err;
 	console.log('create tables');
+
 });
 
 app.get('/', function(req, res){
@@ -50,8 +51,53 @@ app.get('/', function(req, res){
 });
 
 app.post('/', function(req, res){
-	res.render('index');
+	var query = 'INSERT INTO `test01`.`usuarios` (`UsuID`, `UsuNombre`, `UsusPass`) VALUES (NULL, ?, ?);';
+	connection.query(query,[req.body.nombre, req.body.pass] ,function(err, rows){
+		if(err) throw err;
+
+
+		res.json(req.body);
+	});
+});
+
+app.post('/producto', function(req, res){
+
+	var query = 'INSERT INTO `test01`.`producto` (`ProID`, `ProDesc`, `ProValor`) VALUES (?, ?, ?)';
+	connection.query(query,[makeid(), req.body.des, req.body.valor] ,function(err, rows){
+		if(err) throw err;
+
+
+		res.json(req.body);
+	});
+	res.json(req.body);
 });
 
 
+
+function makeid()
+{
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for( var i=0; i < 5; i++ )
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
+}
+
 app.listen(process.env.PORT || 3000);
+
+
+/*
+
+	CREATE
+TRIGGER validation_user
+BEFORE INSERT
+ON Usuarios FOR EACH ROW
+BEGIN 
+    IF NEW.UsuNombre REGEXP '[^a-zA-Z0-9]' THEN 
+    SET NEW.UsuNombre = NEW.UsuNombre;
+    END IF
+END;
+
+ */

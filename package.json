@@ -9,6 +9,7 @@
   "author": "brian bustos <larous25@hotmail.es>",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.13.2",
     "ejs": "^2.3.3",
     "express": "^4.13.1",
     "mysql": "^2.8.0"
