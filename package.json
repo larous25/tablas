@@ -4,6 +4,8 @@
   "description": "prueba mysql",
   "main": "index.js",
   "scripts": {
+    "runServer":"start c:/xampp/mysql/bin/mysqld",
+    "start":"node index",
     "test": "mocha test"
   },
   "author": "brian bustos <larous25@hotmail.es>",

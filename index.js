@@ -45,6 +45,13 @@ function(err, results){
 	console.log('create tables');
 
 });
+connection
+.query('DROP TRIGGER IF EXISTS `validation_user`; CREATE TRIGGER `validation_user` BEFORE INSERT ON `usuarios` FOR EACH ROW BEGIN IF NEW.UsuNombre REGEXP "[^a-zA-Z0-9_ ]" THEN SET NEW.UsuNombre = UsuNombre; END IF; END',
+	function(err, results){
+	if(err) throw err;
+	console.log('create trigger');
+
+});
 
 app.get('/', function(req, res){
 	res.render('index');
@@ -53,10 +60,11 @@ app.get('/', function(req, res){
 app.post('/', function(req, res){
 	var query = 'INSERT INTO `test01`.`usuarios` (`UsuID`, `UsuNombre`, `UsusPass`) VALUES (NULL, ?, ?);';
 	connection.query(query,[req.body.nombre, req.body.pass] ,function(err, rows){
-		if(err) throw err;
-
-
-		res.json(req.body);
+		if(err) {
+			res.json(err);
+		}else{
+			res.json(req.body);
+		}
 	});
 });
 
@@ -86,18 +94,3 @@ function makeid()
 }
 
 app.listen(process.env.PORT || 3000);
-
-
-/*
-
-	CREATE
-TRIGGER validation_user
-BEFORE INSERT
-ON Usuarios FOR EACH ROW
-BEGIN 
-    IF NEW.UsuNombre REGEXP '[^a-zA-Z0-9]' THEN 
-    SET NEW.UsuNombre = NEW.UsuNombre;
-    END IF
-END;
-
- */

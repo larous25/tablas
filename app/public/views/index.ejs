@@ -4,6 +4,11 @@
 		<meta charset="UTF-8">
 		<title>Document</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<style type="text/css">
+			input{
+				margin: 5px;
+			}
+		</style>
 	</head>
 	<body  ng-app="tablas" >
 		<div class="col-lg-12" ng-controller="envios">
@@ -27,7 +32,9 @@
 			$scope.enviarUsuario = function(data){
 				$http.post('/', data)
 				.success(function(data){
-					console.log(data);
+					if(data.hasOwnProperty('code')){
+						alert(data.code);
+					}
 				});
 			}
 			$scope.enviarProducto = function(data){
