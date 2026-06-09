@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Tablas</title>
+
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="bg-base-200 min-h-screen p-8">
+
+    <div class="max-w-4xl mx-auto space-y-6">
+        <h1 class="text-3xl font-bold text-base-content">Bienvenido a la aplicación de tablas</h1>
+
+        <% if (error !== '') { %>
+            <div class="alert alert-error shadow-lg">
+                <span><%= error %></span>
+            </div>
+        <% } %>
+
+        <% if (redirect !== '') { %>
+            <div class="alert alert-warning shadow-lg">
+                <span>Debes iniciar sesión para acceder.</span>
+                <a href="<%= redirect %>" class="btn btn-sm btn-outline">Iniciar sesión</a>
+            </div>
+        <% } else if(users && products) { %>
+            
+			<div class="tabs tabs-boxed">
+				<button id="tab-products" class="tab tab-active">Productos</button>
+				<button id="tab-users" class="tab">Usuarios</button>
+			</div>
+
+			<div id="products-section">
+            <div class="card bg-base-100 shadow-xl p-4">
+                <h2 class="text-xl font-semibold mb-4">Productos</h2>
+                <div class="overflow-x-auto">
+                    <table class="table table-zebra w-full">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% products.forEach(product => { %>
+                                <tr>
+                                    <td><%= product.product_id %></td>
+                                    <td><%= product.name %></td>
+                                    <td>$<%= product.price %></td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+			</div>
+
+			<div id="users-section" class="hidden">
+            <div class="card bg-base-100 shadow-xl p-4">
+                <h2 class="text-xl font-semibold mb-4">Usuarios</h2>
+                <div class="overflow-x-auto">
+                    <table class="table table-zebra w-full">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre de usuario</th>
+                                <th>Rol</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% users.forEach(user => { %>
+                                <tr>
+                                    <td><%= user.user_id %></td>
+                                    <td><%= user.user_name %></td>
+                                    <td>
+                                        <span class="badge badge-primary"><%= user.user_role %></span>
+                                    </td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+			</div>
+        <% } %>
+    </div>
+	<script src="/js/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@plugin "daisyui";
+
+@theme {
+  --default-theme: nord;
+}
+
+#section-products, #section-users {
+    transition: opacity 0.3s ease-in-out;
+}
+.hidden {
+    display: none;
+}
