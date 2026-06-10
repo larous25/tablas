@@ -19,11 +19,11 @@ router.get('/', async (req, res) => {
 
   try {
     const payload = await jwt.verify(authHash, process.env.JWT_SECRET)
-    console.log('llegaa')
+    
     const users = await getAllUsers()
     const products = await getAllProducts()
-    console.log(users, products)
-    res.render('index',  { redirect: '', error: '', users: users, products: [] })
+    
+    res.render('index',  { redirect: '', error: '', users: users, products: products })
   } catch (error) {
     console.error('Error al verificar en el index:', error)
     res.render('index',  { redirect: '', error: 'Token inválido', user: null, products: null })

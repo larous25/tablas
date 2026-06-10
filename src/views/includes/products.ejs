@@ -1,0 +1,32 @@
+
+<div id="products-section">
+    <% if (products && products.length > 0) { %>
+<div class="card bg-base-100 shadow-xl p-4">
+    <h2 class="text-xl font-semibold mb-4">Productos</h2>
+    <div class="overflow-x-auto">
+        <table class="table table-zebra w-full">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% products.forEach(product => { %>
+                    <tr>
+                        <td><%= product.product_id %></td>
+                        <td><%= product.name %></td>
+                        <td>$<%= product.price %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>
+<% } else { %>
+    <div class="alert alert-info shadow-lg">
+        <span>No se encontraron productos.</span>
+    </div>
+<% } %>
+</div>

@@ -20,10 +20,17 @@
         <% } %>
 
         <% if (redirect !== '') { %>
-            <div class="alert alert-warning shadow-lg">
+        <div class="alert alert-warning shadow-lg">
+            <div>
                 <span>Debes iniciar sesión para acceder.</span>
-                <a href="<%= redirect %>" class="btn btn-sm btn-outline">Iniciar sesión</a>
             </div>
+
+            <div class="ml-auto">
+                <a href="<%= redirect %>" class="btn btn-sm btn-outline">
+                    Iniciar sesión
+                </a>
+            </div>
+        </div>
         <% } else if(users && products) { %>
             
 			<div class="tabs tabs-boxed">
@@ -31,62 +38,13 @@
 				<button id="tab-users" class="tab">Usuarios</button>
 			</div>
 
-			<div id="products-section">
-            <div class="card bg-base-100 shadow-xl p-4">
-                <h2 class="text-xl font-semibold mb-4">Productos</h2>
-                <div class="overflow-x-auto">
-                    <table class="table table-zebra w-full">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Precio</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% products.forEach(product => { %>
-                                <tr>
-                                    <td><%= product.product_id %></td>
-                                    <td><%= product.name %></td>
-                                    <td>$<%= product.price %></td>
-                                </tr>
-                            <% }) %>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-			</div>
+            <%- include('includes/products', { products: products }) %>
+            <%- include('includes/users', { users: users }) %>
 
-			<div id="users-section" class="hidden">
-            <div class="card bg-base-100 shadow-xl p-4">
-                <h2 class="text-xl font-semibold mb-4">Usuarios</h2>
-                <div class="overflow-x-auto">
-                    <table class="table table-zebra w-full">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Nombre de usuario</th>
-                                <th>Rol</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% users.forEach(user => { %>
-                                <tr>
-                                    <td><%= user.user_id %></td>
-                                    <td><%= user.user_name %></td>
-                                    <td>
-                                        <span class="badge badge-primary"><%= user.user_role %></span>
-                                    </td>
-                                </tr>
-                            <% }) %>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-			</div>
+	        <script src="/js/index.js"></script>
         <% } %>
     </div>
-	<script src="/js/index.js"></script>
+
 </body>
 
 </html>
