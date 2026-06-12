@@ -1,33 +1,35 @@
-const formCPassword = document.querySelector<HTMLFormElement>('#changePasswordForm');
+const formCPassword = document.querySelector<HTMLFormElement>(
+  '#changePasswordForm'
+)
 
 formCPassword?.addEventListener('submit', async (e) => {
-  e.preventDefault();
+  e.preventDefault()
 
-  const token = window.location.search.split('token=')[1];
+  const token = window.location.search.split('token=')[1]
 
-  const password = document.querySelector<HTMLInputElement>('#password')?.value;
+  const password = document.querySelector<HTMLInputElement>('#password')?.value
 
   try {
     const response = await fetch('/change-password', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': token
+        Authorization: token
       },
       body: JSON.stringify({
         password
       })
-    });
+    })
 
-    const data = await response.json();
+    const data = await response.json()
 
     if (!response.ok) {
-      window.location.href = '/login';
-      return;
+      window.location.href = '/login'
+      return
     }
-
   } catch (error) {
-    console.error(error);
-    document.querySelector<HTMLParagraphElement>('#error')!.textContent = 'Error de conexión';
+    console.error(error)
+    document.querySelector<HTMLParagraphElement>('#error')!.textContent =
+      'Error de conexión'
   }
-});
+})

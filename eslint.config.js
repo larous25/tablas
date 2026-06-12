@@ -5,9 +5,9 @@ import prettier from 'eslint-config-prettier'
 export default [
   js.configs.recommended,
 
-  ignores: [
-    'src/public/js/**'
-  ],
+  {
+    ignores: ['src/public/js/**']
+  },
   // Código de la aplicación
   {
     files: ['**/*.js'],

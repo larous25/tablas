@@ -202,7 +202,7 @@ const getTotalPages = async (quantity, table) => {
   const conn = await pool.getConnection()
   try {
     const [q] = await conn.query(query, [quantity])
-   
+
     return q.total_pages
   } catch (error) {
     console.error('Error al obtener productos:', err)
@@ -211,7 +211,6 @@ const getTotalPages = async (quantity, table) => {
     conn.release()
   }
 }
-
 
 const findUserById = async (id) => {
   const query = 'SELECT * FROM users WHERE user_id = ?'

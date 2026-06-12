@@ -2,11 +2,14 @@
 @layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
-  :root, :host {
-    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-      "Courier New", monospace;
+  :root,
+  :host {
+    --font-sans:
+      ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+      'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-mono:
+      ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+      'Courier New', monospace;
     --spacing: 0.25rem;
     --container-4xl: 56rem;
     --text-sm: 0.875rem;
@@ -24,17 +27,31 @@
   }
 }
 @layer base {
-  *, ::after, ::before, ::backdrop, ::file-selector-button {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     border: 0 solid;
   }
-  html, :host {
+  html,
+  :host {
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;
     tab-size: 4;
-    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-family: var(
+      --default-font-family,
+      ui-sans-serif,
+      system-ui,
+      sans-serif,
+      'Apple Color Emoji',
+      'Segoe UI Emoji',
+      'Segoe UI Symbol',
+      'Noto Color Emoji'
+    );
     font-feature-settings: var(--default-font-feature-settings, normal);
     font-variation-settings: var(--default-font-variation-settings, normal);
     -webkit-tap-highlight-color: transparent;
@@ -48,7 +65,12 @@
     -webkit-text-decoration: underline dotted;
     text-decoration: underline dotted;
   }
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-size: inherit;
     font-weight: inherit;
   }
@@ -57,19 +79,37 @@
     -webkit-text-decoration: inherit;
     text-decoration: inherit;
   }
-  b, strong {
+  b,
+  strong {
     font-weight: bolder;
   }
-  code, kbd, samp, pre {
-    font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
+  code,
+  kbd,
+  samp,
+  pre {
+    font-family: var(
+      --default-mono-font-family,
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      'Liberation Mono',
+      'Courier New',
+      monospace
+    );
     font-feature-settings: var(--default-mono-font-feature-settings, normal);
-    font-variation-settings: var(--default-mono-font-variation-settings, normal);
+    font-variation-settings: var(
+      --default-mono-font-variation-settings,
+      normal
+    );
     font-size: 1em;
   }
   small {
     font-size: 80%;
   }
-  sub, sup {
+  sub,
+  sup {
     font-size: 75%;
     line-height: 0;
     position: relative;
@@ -95,18 +135,33 @@
   summary {
     display: list-item;
   }
-  ol, ul, menu {
+  ol,
+  ul,
+  menu {
     list-style: none;
   }
-  img, svg, video, canvas, audio, iframe, embed, object {
+  img,
+  svg,
+  video,
+  canvas,
+  audio,
+  iframe,
+  embed,
+  object {
     display: block;
     vertical-align: middle;
   }
-  img, video {
+  img,
+  video {
     max-width: 100%;
     height: auto;
   }
-  button, input, select, optgroup, textarea, ::file-selector-button {
+  button,
+  input,
+  select,
+  optgroup,
+  textarea,
+  ::file-selector-button {
     font: inherit;
     font-feature-settings: inherit;
     font-variation-settings: inherit;
@@ -128,7 +183,8 @@
   ::placeholder {
     opacity: 1;
   }
-  @supports (not (-webkit-appearance: -apple-pay-button))  or (contain-intrinsic-size: 1px) {
+  @supports (not (-webkit-appearance: -apple-pay-button)) or
+    (contain-intrinsic-size: 1px) {
     ::placeholder {
       color: currentcolor;
       @supports (color: color-mix(in lab, red, red)) {
@@ -152,7 +208,15 @@
   ::-webkit-datetime-edit-fields-wrapper {
     padding: 0;
   }
-  ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field {
+  ::-webkit-datetime-edit,
+  ::-webkit-datetime-edit-year-field,
+  ::-webkit-datetime-edit-month-field,
+  ::-webkit-datetime-edit-day-field,
+  ::-webkit-datetime-edit-hour-field,
+  ::-webkit-datetime-edit-minute-field,
+  ::-webkit-datetime-edit-second-field,
+  ::-webkit-datetime-edit-millisecond-field,
+  ::-webkit-datetime-edit-meridiem-field {
     padding-block: 0;
   }
   ::-webkit-calendar-picker-indicator {
@@ -161,13 +225,16 @@
   :-moz-ui-invalid {
     box-shadow: none;
   }
-  button, input:where([type="button"], [type="reset"], [type="submit"]), ::file-selector-button {
+  button,
+  input:where([type='button'], [type='reset'], [type='submit']),
+  ::file-selector-button {
     appearance: button;
   }
-  ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+  ::-webkit-inner-spin-button,
+  ::-webkit-outer-spin-button {
     height: auto;
   }
-  [hidden]:where(:not([hidden="until-found"])) {
+  [hidden]:where(:not([hidden='until-found'])) {
     display: none !important;
   }
 }
@@ -199,16 +266,16 @@
       --tab-order: 0;
       --tab-radius-min: calc(0.75rem - var(--border));
       --tab-radius-limit: min(var(--radius-field), var(--tab-radius-min));
-      --tab-radius-grad: #0000 calc(69% - var(--border)),
-      var(--tab-border-color) calc(69% - var(--border) + 0.25px),
-      var(--tab-border-color) 69%,
-      var(--tab-bg) calc(69% + 0.25px);
+      --tab-radius-grad:
+        #0000 calc(69% - var(--border)),
+        var(--tab-border-color) calc(69% - var(--border) + 0.25px),
+        var(--tab-border-color) 69%, var(--tab-bg) calc(69% + 0.25px);
       border-color: #0000;
       order: var(--tab-order);
       height: var(--tab-height);
       font-size: 0.875rem;
       padding-inline: var(--tab-p);
-      &:is(input[type="radio"]) {
+      &:is(input[type='radio']) {
         min-width: fit-content;
         &:after {
           --tw-content: attr(aria-label);
@@ -225,15 +292,34 @@
           opacity: 0%;
         }
       }
-      &:checked, &:is(label:has(:checked)), &:is(.tab-active, [aria-selected="true"], [aria-current="true"], [aria-current="page"]) {
+      &:checked,
+      &:is(label:has(:checked)),
+      &:is(
+        .tab-active,
+        [aria-selected='true'],
+        [aria-current='true'],
+        [aria-current='page']
+      ) {
         & + .tab-content {
           display: block;
         }
       }
-      &:not( :checked, label:has(:checked), :hover, .tab-active, [aria-selected="true"], [aria-current="true"], [aria-current="page"] ) {
+      &:not(
+        :checked,
+        label:has(:checked),
+        :hover,
+        .tab-active,
+        [aria-selected='true'],
+        [aria-current='true'],
+        [aria-current='page']
+      ) {
         color: var(--color-base-content);
         @supports (color: color-mix(in lab, red, red)) {
-          color: color-mix(in oklab, var(--color-base-content) 50%, transparent);
+          color: color-mix(
+            in oklab,
+            var(--color-base-content) 50%,
+            transparent
+          );
         }
       }
       &:not(input):empty {
@@ -248,7 +334,8 @@
           outline-offset: 2px;
         }
       }
-      &:focus-visible, &:is(label:has(:checked:focus-visible)) {
+      &:focus-visible,
+      &:is(label:has(:checked:focus-visible)) {
         outline: 2px solid currentColor;
         outline-offset: -5px;
       }
@@ -264,7 +351,10 @@
         width: unset;
       }
     }
-    .prose :where(a&:not(.btn-link)):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    .prose
+      :where(a&:not(.btn-link)):not(
+        :where([class~='not-prose'], [class~='not-prose'] *)
+      ) {
       text-decoration-line: none;
     }
     @layer daisyui.l1.l2.l3 {
@@ -302,31 +392,44 @@
       border-color: var(--btn-border);
       text-shadow: 0 0.5px oklch(100% 0 0 / calc(var(--depth) * 0.15));
       touch-action: manipulation;
-      box-shadow: 0 0.5px 0 0.5px oklch(100% 0 0 / calc(var(--depth) * 6%)) inset, var(--btn-shadow);
+      box-shadow:
+        0 0.5px 0 0.5px oklch(100% 0 0 / calc(var(--depth) * 6%)) inset,
+        var(--btn-shadow);
       --size: calc(var(--size-field, 0.25rem) * 10);
       --btn-bg: var(--btn-color, var(--color-base-200));
       --btn-fg: var(--color-base-content);
       --btn-p: 1rem;
       --btn-border: var(--btn-bg);
       @supports (color: color-mix(in lab, red, red)) {
-        --btn-border: color-mix(in oklab, var(--btn-bg), #000 calc(var(--depth) * 5%));
+        --btn-border: color-mix(
+          in oklab,
+          var(--btn-bg),
+          #000 calc(var(--depth) * 5%)
+        );
       }
-      --btn-shadow: 0 3px 2px -2px var(--btn-bg),
-      0 4px 3px -2px var(--btn-bg);
+      --btn-shadow: 0 3px 2px -2px var(--btn-bg), 0 4px 3px -2px var(--btn-bg);
       @supports (color: color-mix(in lab, red, red)) {
-        --btn-shadow: 0 3px 2px -2px color-mix(in oklab, var(--btn-bg) calc(var(--depth) * 30%), #0000),
-      0 4px 3px -2px color-mix(in oklab, var(--btn-bg) calc(var(--depth) * 30%), #0000);
+        --btn-shadow:
+          0 3px 2px -2px
+            color-mix(in oklab, var(--btn-bg) calc(var(--depth) * 30%), #0000),
+          0 4px 3px -2px
+            color-mix(in oklab, var(--btn-bg) calc(var(--depth) * 30%), #0000);
       }
       --btn-noise: var(--fx-noise);
       @media (hover: hover) {
         &:hover {
           --btn-bg: var(--btn-color, var(--color-base-200));
           @supports (color: color-mix(in lab, red, red)) {
-            --btn-bg: color-mix(in oklab, var(--btn-color, var(--color-base-200)), #000 7%);
+            --btn-bg: color-mix(
+              in oklab,
+              var(--btn-color, var(--color-base-200)),
+              #000 7%
+            );
           }
         }
       }
-      &:focus-visible, &:has(:focus-visible) {
+      &:focus-visible,
+      &:has(:focus-visible) {
         outline-width: 2px;
         outline-style: solid;
         isolation: isolate;
@@ -335,15 +438,23 @@
         translate: 0 0.5px;
         --btn-bg: var(--btn-color, var(--color-base-200));
         @supports (color: color-mix(in lab, red, red)) {
-          --btn-bg: color-mix(in oklab, var(--btn-color, var(--color-base-200)), #000 5%);
+          --btn-bg: color-mix(
+            in oklab,
+            var(--btn-color, var(--color-base-200)),
+            #000 5%
+          );
         }
         --btn-border: var(--btn-color, var(--color-base-200));
         @supports (color: color-mix(in lab, red, red)) {
-          --btn-border: color-mix(in oklab, var(--btn-color, var(--color-base-200)), #000 7%);
+          --btn-border: color-mix(
+            in oklab,
+            var(--btn-color, var(--color-base-200)),
+            #000 7%
+          );
         }
         --btn-shadow: 0 0 0 0 oklch(0% 0 0/0), 0 0 0 0 oklch(0% 0 0/0);
       }
-      &:is(input[type="checkbox"], input[type="radio"]) {
+      &:is(input[type='checkbox'], input[type='radio']) {
         appearance: none;
         &[aria-label]::after {
           --tw-content: attr(aria-label);
@@ -361,7 +472,11 @@
         &:not(.btn-link, .btn-ghost) {
           background-color: var(--color-base-content);
           @supports (color: color-mix(in lab, red, red)) {
-            background-color: color-mix(in oklab, var(--color-base-content) 10%, transparent);
+            background-color: color-mix(
+              in oklab,
+              var(--color-base-content) 10%,
+              transparent
+            );
           }
           box-shadow: none;
         }
@@ -379,7 +494,11 @@
         &:not(.btn-link, .btn-ghost) {
           background-color: var(--color-base-content);
           @supports (color: color-mix(in lab, red, red)) {
-            background-color: color-mix(in oklab, var(--color-base-content) 10%, transparent);
+            background-color: color-mix(
+              in oklab,
+              var(--color-base-content) 10%,
+              transparent
+            );
           }
           box-shadow: none;
         }
@@ -416,14 +535,28 @@
       border-end-start-radius: var(--join-es, var(--radius-field));
       border-end-end-radius: var(--join-ee, var(--radius-field));
       border-color: var(--input-color);
-      box-shadow: 0 1px var(--input-color) inset, 0 -1px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset;
+      box-shadow:
+        0 1px var(--input-color) inset,
+        0 -1px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset;
       @supports (color: color-mix(in lab, red, red)) {
-        box-shadow: 0 1px color-mix(in oklab, var(--input-color) calc(var(--depth) * 10%), #0000) inset, 0 -1px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset;
+        box-shadow:
+          0 1px
+            color-mix(
+              in oklab,
+              var(--input-color) calc(var(--depth) * 10%),
+              #0000
+            )
+            inset,
+          0 -1px oklch(100% 0 0 / calc(var(--depth) * 0.1)) inset;
       }
       --size: calc(var(--size-field, 0.25rem) * 10);
       --input-color: var(--color-base-content);
       @supports (color: color-mix(in lab, red, red)) {
-        --input-color: color-mix(in oklab, var(--color-base-content) 20%, #0000);
+        --input-color: color-mix(
+          in oklab,
+          var(--color-base-content) 20%,
+          #0000
+        );
       }
       &:where(input) {
         display: inline-flex;
@@ -435,7 +568,8 @@
         appearance: none;
         background-color: transparent;
         border: none;
-        &:focus, &:focus-within {
+        &:focus,
+        &:focus-within {
           --tw-outline-style: none;
           outline-style: none;
           @media (forced-colors: active) {
@@ -444,17 +578,24 @@
           }
         }
       }
-      :where(input[type="url"]), :where(input[type="email"]) {
+      :where(input[type='url']),
+      :where(input[type='email']) {
         direction: ltr;
       }
-      :where(input[type="date"]) {
+      :where(input[type='date']) {
         display: inline-flex;
       }
-      &:focus, &:focus-within {
+      &:focus,
+      &:focus-within {
         --input-color: var(--color-base-content);
         box-shadow: 0 1px var(--input-color);
         @supports (color: color-mix(in lab, red, red)) {
-          box-shadow: 0 1px color-mix(in oklab, var(--input-color) calc(var(--depth) * 10%), #0000);
+          box-shadow: 0 1px
+            color-mix(
+              in oklab,
+              var(--input-color) calc(var(--depth) * 10%),
+              #0000
+            );
         }
         outline: 2px solid var(--input-color);
         outline-offset: 2px;
@@ -462,23 +603,34 @@
       }
       @media (pointer: coarse) {
         @supports (-webkit-touch-callout: none) {
-          &:focus, &:focus-within {
+          &:focus,
+          &:focus-within {
             --font-size: 1rem;
           }
         }
       }
-      &:has(> input[disabled]), &:is(:disabled, [disabled]), fieldset:disabled & {
+      &:has(> input[disabled]),
+      &:is(:disabled, [disabled]),
+      fieldset:disabled & {
         cursor: not-allowed;
         border-color: var(--color-base-200);
         background-color: var(--color-base-200);
         color: var(--color-base-content);
         @supports (color: color-mix(in lab, red, red)) {
-          color: color-mix(in oklab, var(--color-base-content) 40%, transparent);
+          color: color-mix(
+            in oklab,
+            var(--color-base-content) 40%,
+            transparent
+          );
         }
         &::placeholder {
           color: var(--color-base-content);
           @supports (color: color-mix(in lab, red, red)) {
-            color: color-mix(in oklab, var(--color-base-content) 20%, transparent);
+            color: color-mix(
+              in oklab,
+              var(--color-base-content) 20%,
+              transparent
+            );
           }
         }
         box-shadow: none;
@@ -489,7 +641,7 @@
       &::-webkit-date-and-time-value {
         text-align: inherit;
       }
-      &[type="number"] {
+      &[type='number'] {
         &::-webkit-inner-spin-button {
           margin-block: calc(0.25rem * -3);
           margin-inline-end: calc(0.25rem * -3);
@@ -499,13 +651,13 @@
         position: absolute;
         inset-inline-end: 0.75em;
       }
-      &:has(> input[type="date"]) {
-        :where(input[type="date"]) {
+      &:has(> input[type='date']) {
+        :where(input[type='date']) {
           display: inline-flex;
           webkit-appearance: none;
           appearance: none;
         }
-        input[type="date"]::-webkit-calendar-picker-indicator {
+        input[type='date']::-webkit-calendar-picker-indicator {
           position: absolute;
           inset-inline-end: 0.75em;
           width: 1em;
@@ -526,11 +678,12 @@
       border-spacing: var(--tw-border-spacing-x) var(--tw-border-spacing-y);
       border-radius: var(--radius-box);
       text-align: left;
-      &:where(:dir(rtl), [dir="rtl"], [dir="rtl"] *) {
+      &:where(:dir(rtl), [dir='rtl'], [dir='rtl'] *) {
         text-align: right;
       }
       tr.row-hover {
-        &, &:nth-child(even) {
+        &,
+        &:nth-child(even) {
           &:hover {
             @media (hover: hover) {
               background-color: var(--color-base-200);
@@ -547,7 +700,11 @@
         white-space: nowrap;
         color: var(--color-base-content);
         @supports (color: color-mix(in lab, red, red)) {
-          color: color-mix(in oklab, var(--color-base-content) 60%, transparent);
+          color: color-mix(
+            in oklab,
+            var(--color-base-content) 60%,
+            transparent
+          );
         }
         font-size: 0.875rem;
         font-weight: 600;
@@ -555,7 +712,8 @@
       :where(tfoot tr:first-child :is(td, th)) {
         border-top: var(--border) solid var(--color-base-content);
         @supports (color: color-mix(in lab, red, red)) {
-          border-top: var(--border) solid color-mix(in oklch, var(--color-base-content) 5%, #0000);
+          border-top: var(--border) solid
+            color-mix(in oklch, var(--color-base-content) 5%, #0000);
         }
       }
       :where(.table-pin-rows thead tr) {
@@ -579,7 +737,8 @@
       :where(thead tr :is(td, th), tbody tr:not(:last-child) :is(td, th)) {
         border-bottom: var(--border) solid var(--color-base-content);
         @supports (color: color-mix(in lab, red, red)) {
-          border-bottom: var(--border) solid color-mix(in oklch, var(--color-base-content) 5%, #0000);
+          border-bottom: var(--border) solid
+            color-mix(in oklch, var(--color-base-content) 5%, #0000);
         }
       }
     }
@@ -612,10 +771,11 @@
           border: 1px solid;
           color: var(--step-bg);
           background-color: var(--step-bg);
-          content: "";
+          content: '';
           margin-inline-start: -100%;
         }
-        > .step-icon, &:not(:has(.step-icon)):after {
+        > .step-icon,
+        &:not(:has(.step-icon)):after {
           --tw-content: counter(step);
           content: var(--tw-content);
           counter-increment: step;
@@ -645,49 +805,65 @@
     }
     @layer daisyui.l1.l2 {
       .step-neutral {
-        + .step-neutral:before, &:after, > .step-icon {
+        + .step-neutral:before,
+        &:after,
+        > .step-icon {
           --step-bg: var(--color-neutral);
           --step-fg: var(--color-neutral-content);
         }
       }
       .step-primary {
-        + .step-primary:before, &:after, > .step-icon {
+        + .step-primary:before,
+        &:after,
+        > .step-icon {
           --step-bg: var(--color-primary);
           --step-fg: var(--color-primary-content);
         }
       }
       .step-secondary {
-        + .step-secondary:before, &:after, > .step-icon {
+        + .step-secondary:before,
+        &:after,
+        > .step-icon {
           --step-bg: var(--color-secondary);
           --step-fg: var(--color-secondary-content);
         }
       }
       .step-accent {
-        + .step-accent:before, &:after, > .step-icon {
+        + .step-accent:before,
+        &:after,
+        > .step-icon {
           --step-bg: var(--color-accent);
           --step-fg: var(--color-accent-content);
         }
       }
       .step-info {
-        + .step-info:before, &:after, > .step-icon {
+        + .step-info:before,
+        &:after,
+        > .step-icon {
           --step-bg: var(--color-info);
           --step-fg: var(--color-info-content);
         }
       }
       .step-success {
-        + .step-success:before, &:after, > .step-icon {
+        + .step-success:before,
+        &:after,
+        > .step-icon {
           --step-bg: var(--color-success);
           --step-fg: var(--color-success-content);
         }
       }
       .step-warning {
-        + .step-warning:before, &:after, > .step-icon {
+        + .step-warning:before,
+        &:after,
+        > .step-icon {
           --step-bg: var(--color-warning);
           --step-fg: var(--color-warning-content);
         }
       }
       .step-error {
-        + .step-error:before, &:after, > .step-icon {
+        + .step-error:before,
+        &:after,
+        > .step-icon {
           --step-bg: var(--color-error);
           --step-fg: var(--color-error-content);
         }
@@ -734,7 +910,7 @@
         align-items: center;
         justify-content: center;
       }
-      &:has(> input:is(input[type="checkbox"], input[type="radio"])) {
+      &:has(> input:is(input[type='checkbox'], input[type='radio'])) {
         cursor: pointer;
         user-select: none;
       }
@@ -771,7 +947,8 @@
           margin-inline-end: calc(0.25rem * 3);
           border-inline-end: var(--border) solid currentColor;
           @supports (color: color-mix(in lab, red, red)) {
-            border-inline-end: var(--border) solid color-mix(in oklab, currentColor 10%, #0000);
+            border-inline-end: var(--border) solid
+              color-mix(in oklab, currentColor 10%, #0000);
           }
         }
         &:last-child {
@@ -779,7 +956,8 @@
           margin-inline-end: calc(0.25rem * -3);
           border-inline-start: var(--border) solid currentColor;
           @supports (color: color-mix(in lab, red, red)) {
-            border-inline-start: var(--border) solid color-mix(in oklab, currentColor 10%, #0000);
+            border-inline-start: var(--border) solid
+              color-mix(in oklab, currentColor 10%, #0000);
           }
         }
       }
@@ -863,9 +1041,25 @@
       line-height: 1.25rem;
       background-size: auto, calc(var(--noise) * 100%);
       background-image: none, var(--fx-noise);
-      box-shadow: 0 3px 0 -2px oklch(100% 0 0 / calc(var(--depth) * 0.08)) inset, 0 1px #000, 0 4px 3px -2px oklch(0% 0 0 / calc(var(--depth) * 0.08));
+      box-shadow:
+        0 3px 0 -2px oklch(100% 0 0 / calc(var(--depth) * 0.08)) inset,
+        0 1px #000,
+        0 4px 3px -2px oklch(0% 0 0 / calc(var(--depth) * 0.08));
       @supports (color: color-mix(in lab, red, red)) {
-        box-shadow: 0 3px 0 -2px oklch(100% 0 0 / calc(var(--depth) * 0.08)) inset, 0 1px color-mix( in oklab, color-mix(in oklab, #000 20%, var(--alert-color, var(--color-base-200))) calc(var(--depth) * 20%), #0000 ), 0 4px 3px -2px oklch(0% 0 0 / calc(var(--depth) * 0.08));
+        box-shadow:
+          0 3px 0 -2px oklch(100% 0 0 / calc(var(--depth) * 0.08)) inset,
+          0 1px
+            color-mix(
+              in oklab,
+              color-mix(
+                  in oklab,
+                  #000 20%,
+                  var(--alert-color, var(--color-base-200))
+                )
+                calc(var(--depth) * 20%),
+              #0000
+            ),
+          0 4px 3px -2px oklch(0% 0 0 / calc(var(--depth) * 0.08));
       }
       &:has(:nth-child(2)) {
         grid-template-columns: auto minmax(auto, 1fr);
@@ -928,15 +1122,23 @@
   .space-y-4 {
     :where(& > :not(:last-child)) {
       --tw-space-y-reverse: 0;
-      margin-block-start: calc(calc(var(--spacing) * 4) * var(--tw-space-y-reverse));
-      margin-block-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-y-reverse)));
+      margin-block-start: calc(
+        calc(var(--spacing) * 4) * var(--tw-space-y-reverse)
+      );
+      margin-block-end: calc(
+        calc(var(--spacing) * 4) * calc(1 - var(--tw-space-y-reverse))
+      );
     }
   }
   .space-y-6 {
     :where(& > :not(:last-child)) {
       --tw-space-y-reverse: 0;
-      margin-block-start: calc(calc(var(--spacing) * 6) * var(--tw-space-y-reverse));
-      margin-block-end: calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse)));
+      margin-block-start: calc(
+        calc(var(--spacing) * 6) * var(--tw-space-y-reverse)
+      );
+      margin-block-end: calc(
+        calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse))
+      );
     }
   }
   .overflow-x-auto {
@@ -953,7 +1155,8 @@
             }
           }
           &.row-hover {
-            &, &:where(:nth-child(even)) {
+            &,
+            &:where(:nth-child(even)) {
               &:hover {
                 @media (hover: hover) {
                   background-color: var(--color-base-300);
@@ -1028,25 +1231,47 @@
     color: var(--color-error);
   }
   .shadow-lg {
-    --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
-    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    --tw-shadow:
+      0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1)),
+      0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow:
+      var(--tw-inset-shadow), var(--tw-inset-ring-shadow),
+      var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .shadow-xl {
-    --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
-    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    --tw-shadow:
+      0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)),
+      0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow:
+      var(--tw-inset-shadow), var(--tw-inset-ring-shadow),
+      var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .btn-outline {
     @layer daisyui.l1 {
-      &:not( .btn-active, :hover, :active:focus, :focus-visible, input:checked:not(.filter .btn), :disabled, [disabled], .btn-disabled ) {
-        --btn-shadow: "";
+      &:not(
+        .btn-active,
+        :hover,
+        :active:focus,
+        :focus-visible,
+        input:checked:not(.filter .btn),
+        :disabled,
+        [disabled],
+        .btn-disabled
+      ) {
+        --btn-shadow: '';
         --btn-bg: #0000;
         --btn-fg: var(--btn-color);
         --btn-border: var(--btn-color);
         --btn-noise: none;
       }
       @media (hover: none) {
-        &:not(.btn-active, :active, :focus-visible, input:checked:not(.filter .btn)):hover {
-          --btn-shadow: "";
+        &:not(
+            .btn-active,
+            :active,
+            :focus-visible,
+            input:checked:not(.filter .btn)
+          ):hover {
+          --btn-shadow: '';
           --btn-bg: #0000;
           --btn-fg: var(--btn-color);
           --btn-border: var(--btn-color);
@@ -1075,14 +1300,17 @@
     }
   }
 }
-#section-products, #section-users {
+#section-products,
+#section-users {
   transition: opacity 0.3s ease-in-out;
 }
 .hidden {
   display: none;
 }
 @layer base {
-  :where(:root),:root:has(input.theme-controller[value=light]:checked),[data-theme=light] {
+  :where(:root),
+  :root:has(input.theme-controller[value='light']:checked),
+  [data-theme='light'] {
     color-scheme: light;
     --color-base-100: oklch(100% 0 0);
     --color-base-200: oklch(98% 0 0);
@@ -1150,7 +1378,8 @@
   }
 }
 @layer base {
-  :root:has(input.theme-controller[value=light]:checked),[data-theme=light] {
+  :root:has(input.theme-controller[value='light']:checked),
+  [data-theme='light'] {
     color-scheme: light;
     --color-base-100: oklch(100% 0 0);
     --color-base-200: oklch(98% 0 0);
@@ -1183,7 +1412,8 @@
   }
 }
 @layer base {
-  :root:has(input.theme-controller[value=dark]:checked),[data-theme=dark] {
+  :root:has(input.theme-controller[value='dark']:checked),
+  [data-theme='dark'] {
     color-scheme: dark;
     --color-base-100: oklch(25.33% 0.016 252.42);
     --color-base-200: oklch(23.26% 0.014 253.1);
@@ -1223,19 +1453,33 @@
 @layer base {
   :root {
     background: var(--page-scroll-bg, var(--root-bg));
-    --page-scroll-bg-on: linear-gradient(var(--root-bg, #0000), var(--root-bg, #0000))
-    var(--root-bg, #0000);
+    --page-scroll-bg-on: linear-gradient(
+        var(--root-bg, #0000),
+        var(--root-bg, #0000)
+      )
+      var(--root-bg, #0000);
     @supports (color: color-mix(in lab, red, red)) {
-      --page-scroll-bg-on: linear-gradient(var(--root-bg, #0000), var(--root-bg, #0000))
-    color-mix(in srgb, var(--root-bg, #0000), oklch(0% 0 0) calc(var(--page-has-backdrop, 0) * 40%));
+      --page-scroll-bg-on: linear-gradient(
+          var(--root-bg, #0000),
+          var(--root-bg, #0000)
+        )
+        color-mix(
+          in srgb,
+          var(--root-bg, #0000),
+          oklch(0% 0 0) calc(var(--page-has-backdrop, 0) * 40%)
+        );
     }
     --page-scroll-transition-on: background-color 0.3s ease-out;
     transition: var(--page-scroll-transition);
     scrollbar-gutter: var(--page-scroll-gutter, unset);
-    scrollbar-gutter: if(style(--page-has-scroll: 1): var(--page-scroll-gutter, unset) ; else: unset);
+    scrollbar-gutter: if(
+      style(--page-has-scroll: 1): var(--page-scroll-gutter, unset) ;
+        else: unset
+    );
   }
   @keyframes set-page-has-scroll {
-    0%, to {
+    0%,
+    to {
       --page-has-scroll: 1;
     }
   }
@@ -1246,7 +1490,8 @@
   }
 }
 @layer base {
-  :root, [data-theme] {
+  :root,
+  [data-theme] {
     background: var(--page-scroll-bg, var(--root-bg));
     color: var(--color-base-content);
   }
@@ -1264,13 +1509,14 @@
 }
 @layer base {
   @property --radialprogress {
-    syntax: "<percentage>";
+    syntax: '<percentage>';
     inherits: true;
     initial-value: 0%;
   }
 }
 @keyframes rating {
-  0%, 40% {
+  0%,
+  40% {
     scale: 1.1;
     filter: brightness(1.05) contrast(1.05);
   }
@@ -1281,10 +1527,12 @@
   }
 }
 @keyframes rotator {
-  89.9999%, 100% {
+  89.9999%,
+  100% {
     --first-item-position: 0 0%;
   }
-  90%, 99.9999% {
+  90%,
+  99.9999% {
     --first-item-position: 0 calc(var(--items) * 100%);
   }
   100% {
@@ -1328,82 +1576,86 @@
   }
 }
 @property --tw-space-y-reverse {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
   initial-value: 0;
 }
 @property --tw-font-weight {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 @property --tw-shadow {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
   initial-value: 0 0 #0000;
 }
 @property --tw-shadow-color {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 @property --tw-shadow-alpha {
-  syntax: "<percentage>";
+  syntax: '<percentage>';
   inherits: false;
   initial-value: 100%;
 }
 @property --tw-inset-shadow {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
   initial-value: 0 0 #0000;
 }
 @property --tw-inset-shadow-color {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 @property --tw-inset-shadow-alpha {
-  syntax: "<percentage>";
+  syntax: '<percentage>';
   inherits: false;
   initial-value: 100%;
 }
 @property --tw-ring-color {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 @property --tw-ring-shadow {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
   initial-value: 0 0 #0000;
 }
 @property --tw-inset-ring-color {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 @property --tw-inset-ring-shadow {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
   initial-value: 0 0 #0000;
 }
 @property --tw-ring-inset {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
 }
 @property --tw-ring-offset-width {
-  syntax: "<length>";
+  syntax: '<length>';
   inherits: false;
   initial-value: 0px;
 }
 @property --tw-ring-offset-color {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
   initial-value: #fff;
 }
 @property --tw-ring-offset-shadow {
-  syntax: "*";
+  syntax: '*';
   inherits: false;
   initial-value: 0 0 #0000;
 }
 @layer properties {
-  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
-    *, ::before, ::after, ::backdrop {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+    ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+    *,
+    ::before,
+    ::after,
+    ::backdrop {
       --tw-space-y-reverse: 0;
       --tw-font-weight: initial;
       --tw-shadow: 0 0 #0000;

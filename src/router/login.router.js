@@ -13,7 +13,6 @@ const router = Router()
 router.get('/login', (req, res) => res.render('login'))
 
 router.post('/login', async (req, res) => {
-
   const { name, password } = req.body
 
   if (name == undefined || password == undefined) {
@@ -45,7 +44,7 @@ router.post('/login', async (req, res) => {
         )
 
         return res.status(200).json({
-          redirect: `/change-password?token=${token}`,
+          redirect: `/change-password?token=${token}`
         })
       }
     }
@@ -62,14 +61,12 @@ router.post('/login', async (req, res) => {
     )
 
     return res.status(200).json({
-      redirect: `/?token=${token}`,
+      redirect: `/?token=${token}`
     })
-
   } catch (err) {
     console.log(err)
     return res.status(500).json({ error: 'Error en el servidor' })
   }
-
 })
 
 router.get('/change-password', async (req, res) => {
@@ -111,14 +108,11 @@ router.post('/change-password', auth, async (req, res) => {
 
   try {
     const user = await findUserById(req.user.id)
-    await updateUser(
-      req.user.id,
-      user.user_name,
-      password,
-      user.user_role
-    )
+    await updateUser(req.user.id, user.user_name, password, user.user_role)
 
-    return res.status(200).json({ message: 'Contraseña actualizada correctamente' })
+    return res
+      .status(200)
+      .json({ message: 'Contraseña actualizada correctamente' })
   } catch (err) {
     console.log(err)
     return res.status(500).json({ error: 'Error al actualizar contraseña' })
