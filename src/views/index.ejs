@@ -38,8 +38,8 @@
 				<button id="tab-users" class="tab">Usuarios</button>
 			</div>
 
-            <%- include('includes/products', { products: products }) %>
-            <%- include('includes/users', { users: users }) %>
+            <%- include('includes/products', { products, productsTotalPages, usersPage, authToken }) %>
+            <%- include('includes/users', { users, usersTotalPages, productsPage, authToken }) %>
 
 	        <script src="/js/index.js"></script>
         <% } %>

@@ -1,8 +1,8 @@
-
 <div id="users-section" class="hidden">
 <% if (users && users.length > 0) { %>
 <div class="card bg-base-100 shadow-xl p-4">
     <h2 class="text-xl font-semibold mb-4">Usuarios</h2>
+
     <div class="overflow-x-auto">
         <table class="table table-zebra w-full">
             <thead>
@@ -18,14 +18,30 @@
                         <td><%= user.user_id %></td>
                         <td><%= user.user_name %></td>
                         <td>
-                            <span class="badge badge-primary"><%= user.user_role %></span>
+                            <span class="badge badge-primary">
+                                <%= user.user_role %>
+                            </span>
                         </td>
                     </tr>
                 <% }) %>
             </tbody>
         </table>
     </div>
-</div>
+
+    <% if (usersTotalPages > 1) { %>
+    <div class="flex justify-center mt-6">
+        <div class="join">
+            <% for(let page = 1; page <= usersTotalPages; page++) { %>
+                <a
+                    href="/?token=<%= authToken %>&up=<%= page %>&pp=<%= productsPage %>&t=1"
+                    class="join-item btn"
+                >
+                    <%= page %>
+                </a>
+            <% } %>
+        </div>
+    </div>
+    <% } %>
 <% } else { %>
     <div class="alert alert-info shadow-lg">
         <span>No se encontraron usuarios.</span>

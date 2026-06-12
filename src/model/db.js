@@ -51,7 +51,7 @@ async function initDatabase() {
     await conn.query(`
             CREATE TABLE IF NOT EXISTS products (
                 product_id INT NOT NULL AUTO_INCREMENT,
-                product_description VARCHAR(50),
+                product_name VARCHAR(50),
                 product_price DECIMAL(13,2),
                 PRIMARY KEY (product_id)
             )
@@ -141,14 +141,14 @@ const getAllUsers = async () => {
   }
 }
 
-const getAllProducts = async () => {
-  const query = 'SELECT * FROM products'
+const getSomeUsers = async (limit, offset) => {
+  const query = 'SELECT * FROM users LIMIT ? OFFSET ?'
   const conn = await pool.getConnection()
   try {
-    const rows = await conn.query(query)
+    const rows = await conn.query(query, [limit, offset])
     return rows
   } catch (err) {
-    console.error('Error al obtener productos:', err)
+    console.error('Error al obtener usuarios:', err)
     throw err
   } finally {
     conn.release()
@@ -168,6 +168,50 @@ const getUserByName = async (nombre) => {
     conn.release()
   }
 }
+
+const getAllProducts = async () => {
+  const query = 'SELECT * FROM products'
+  const conn = await pool.getConnection()
+  try {
+    const rows = await conn.query(query)
+    return rows
+  } catch (err) {
+    console.error('Error al obtener productos:', err)
+    throw err
+  } finally {
+    conn.release()
+  }
+}
+
+const getSomeProducts = async (limit, offset) => {
+  const query = 'SELECT * FROM products LIMIT ? OFFSET ?'
+  const conn = await pool.getConnection()
+  try {
+    const rows = await conn.query(query, [limit, offset])
+    return rows
+  } catch (err) {
+    console.error('Error al obtener productos:', err)
+    throw err
+  } finally {
+    conn.release()
+  }
+}
+
+const getTotalPages = async (quantity, table) => {
+  const query = `SELECT CEIL(COUNT(*) / ?) AS total_pages FROM ${table};`
+  const conn = await pool.getConnection()
+  try {
+    const [q] = await conn.query(query, [quantity])
+   
+    return q.total_pages
+  } catch (error) {
+    console.error('Error al obtener productos:', err)
+    throw err
+  } finally {
+    conn.release()
+  }
+}
+
 
 const findUserById = async (id) => {
   const query = 'SELECT * FROM users WHERE user_id = ?'
@@ -194,7 +238,7 @@ const updateUser = async (id, name, pass, role) => {
         WHERE user_id = ?
     `
   try {
-    const hashPass =  await setPassword(pass)
+    const hashPass = await setPassword(pass)
     await conn.query(query, [name, hashPass, role, id])
     console.log('Usuario actualizado exitosamente.')
   } catch (err) {
@@ -237,5 +281,8 @@ export {
   updateUser,
   findUserById,
   getAllUsers,
-  getAllProducts
+  getAllProducts,
+  getSomeProducts,
+  getSomeUsers,
+  getTotalPages
 }
